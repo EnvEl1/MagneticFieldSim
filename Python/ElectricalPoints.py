@@ -8,13 +8,17 @@ coulomb = 1.602e-19 # C
 electric_charge = 1 * coulomb # C
 
 # User inputs for point charge 1
-pointx_input = input("Enter x coordinate of point charge 1 (m): ")
-pointy_input = input("Enter y coordinate of point charge 1 (m): ")
 point_velocity_input = input("Enter velocity of point charge 1 (m/s): ")
+point_velocity_angle_input = input("Enter angle of point charge 1 (degrees): ")
 
-pointx = float(pointx_input)
-pointy = float(pointy_input)
 point_velocity = float(point_velocity_input)
+point_velocity_angle = float(point_velocity_angle_input)
+
+def deg_to_rad(degrees):
+    return degrees * (np.pi / 180)
+
+velocity_x = point_velocity * np.cos(deg_to_rad(point_velocity_angle))
+velocity_y = point_velocity * np.sin(deg_to_rad(point_velocity_angle))
 
 # time variables
 t_start = 0 # seconds
@@ -23,8 +27,8 @@ dt = 0.1 # seconds
 time = np.arange(t_start, t_end, dt)
 
 # position calculations
-x_position = pointx + point_velocity * time
-y_position = pointy + 0 * time  # assuming no vertical movement
+x_position = velocity_x * time
+y_position = velocity_y * time  # assuming no vertical movement
 
 
 # visualitation graphing
