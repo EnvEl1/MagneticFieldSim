@@ -1,6 +1,13 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+#input parameters
+initial_velocity = input("Enter the initial velocity (m/s): ")
+angle_degrees = input("Enter the angle of launch (degrees): ")
+angle_radians = np.radians(float(angle_degrees))
+initial_velocity_x = float(initial_velocity) * np.cos(angle_radians)
+initial_velocity_y = float(initial_velocity) * np.sin(angle_radians)
+
 # constants
 g = 9.81 # m/s^2
 permitivity = 8.854e-12 # C^2/(N*m^2)
@@ -9,8 +16,8 @@ electric_charge = -1 * coulomb # C
 electron_mass = 9.11e-31 # kg
 
 #initial conditions
-x, y = 5.5e-4, 5.5e-4 # meters
-x_velocity, y_velocity = 0.0, 0.0 # m/s
+x, y = 10, 10 # meters
+x_velocity, y_velocity = initial_velocity_x, initial_velocity_y # m/s
 
 x_points, y_points = [x], [y]
 
