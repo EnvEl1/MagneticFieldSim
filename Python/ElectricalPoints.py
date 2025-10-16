@@ -1,4 +1,5 @@
 import numpy as np
+
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 
@@ -56,5 +57,19 @@ for t in time[1:]:
 
 # animation graphing
 fig, ax = plt.subplots()
-animation = FuncAnimation()
+ax.set_xlim(min(x_points), max(x_points))
+ax.set_ylim(min(y_points), max(y_points))
+animated_plot, = ax.plot([], [])
+
+def update_data(frame):
+    animated_plot.set_data(x_points[:frame], y_points[:frame])
+    return animated_plot,
+
+animation = FuncAnimation(
+    fig=fig,
+    func=update_data,
+    frames = 5000,
+    interval=1,
+    repeat=False
+    )
 plt.show()
