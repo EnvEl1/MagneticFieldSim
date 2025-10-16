@@ -1,7 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from matplotlib.animation import FuncAnimation
 
-#input parameters
+#input parameters for particle 1
 initial_velocity = input("Enter the initial velocity (m/s): ")
 angle_degrees = input("Enter the angle of launch (degrees): ")
 angle_radians = np.radians(float(angle_degrees))
@@ -15,7 +16,7 @@ coulomb = 1.602e-19 # C
 electric_charge = -1 * coulomb # C
 electron_mass = 9.11e-31 # kg
 
-#initial conditions
+#initial conditions particle 1
 x, y = 10, 10 # meters
 x_velocity, y_velocity = initial_velocity_x, initial_velocity_y # m/s
 
@@ -24,7 +25,7 @@ x_points, y_points = [x], [y]
 # time variables
 t_start = 0 # seconds
 t_end = 5 # seconds
-dt = 0.1 # seconds
+dt = 0.001 # seconds
 time = np.arange(t_start, t_end, dt)
 
 # update loop
@@ -53,10 +54,7 @@ for t in time[1:]:
     x_points.append(x)
     y_points.append(y)
 
-# visualitation graphing
+# animation graphing
 fig, ax = plt.subplots()
-plt.plot(x_points, y_points,linewidth=3,linestyle='--' , label='Point Charge 1 Position')
-plt.xlabel('X Position (m)')
-plt.ylabel('Y Position (m)')
-plt.grid()
+animation = FuncAnimation()
 plt.show()
