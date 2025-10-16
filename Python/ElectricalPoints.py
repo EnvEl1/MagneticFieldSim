@@ -25,7 +25,7 @@ x_points, y_points = [x], [y]
 
 # time variables
 t_start = 0 # seconds
-t_end = 5 # seconds
+t_end = 15 # seconds
 dt = 0.001 # seconds
 time = np.arange(t_start, t_end, dt)
 
@@ -37,7 +37,7 @@ for t in time[1:]:
     r_haty = y / r_magnitude
 
     # electric field
-    E_magnitude = 1.602e-19 / (4 * np.pi * permitivity * r_magnitude**2)
+    E_magnitude = 10*1.602e-19 / (4 * np.pi * permitivity * r_magnitude**2)
     Ex = E_magnitude * r_hatx
     Ey = E_magnitude * r_haty
 
@@ -68,8 +68,8 @@ def update_data(frame):
 animation = FuncAnimation(
     fig=fig,
     func=update_data,
-    frames = 5000,
-    interval=1,
+    frames = 15000,
+    interval=.1,
     repeat=False
     )
 plt.show()
