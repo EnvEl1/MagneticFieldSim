@@ -56,7 +56,8 @@ for t in time[1:]:
     y_points.append(y)
 
 # animation graphing
-fig, ax = plt.subplots()
+fig = plt.figure()
+ax = fig.add_subplot(111)
 ax.set_xlim(min(x_points), max(x_points))
 ax.set_ylim(min(y_points), max(y_points))
 animated_plot, = ax.plot([], [])
