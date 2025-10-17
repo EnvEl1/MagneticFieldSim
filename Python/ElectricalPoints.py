@@ -69,7 +69,7 @@ animation = FuncAnimation(
     fig=fig,
     func=update_data,
     frames = 15000,
-    interval=.1,
+    interval=.001,
     repeat=False
     )
 plt.show()
